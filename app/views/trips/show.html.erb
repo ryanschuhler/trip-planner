@@ -1,0 +1,87 @@
+<p>
+	<strong>Title:</strong>
+	<%= @trip.title %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @trip.description %>
+</p>
+
+<h2>Expenses</h2>
+<% @trip.expenses.each do |expense| %>
+  <p>
+    <strong>Title:</strong>
+    <%= expense.title %>
+  </p>
+
+  <p>
+    <strong>Cost:</strong>
+    <%= expense.cost %>
+  </p>
+<% end %>
+
+<h2>Add a expense:</h2>
+<%= form_for([@trip, @trip.expenses.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>Gear</h2>
+<% @trip.items.each do |item| %>
+  <p>
+    <strong>Title:</strong>
+    <%= item.title %>
+  </p>
+<% end %>
+
+<h2>Add an item:</h2>
+<%= form_for([@trip, @trip.items.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>Transportation</h2>
+<% @trip.cars.each do |car| %>
+  <p>
+    <strong>Title:</strong>
+    <%= car.title %>
+  </p>
+
+  <p>
+    <strong>Capacity:</strong>
+    <%= car.capacity %>
+  </p>
+<% end %>
+
+<h2>Add a car:</h2>
+<%= form_for([@trip, @trip.cars.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :capacity %><br>
+    <%= f.number_field :capacity %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

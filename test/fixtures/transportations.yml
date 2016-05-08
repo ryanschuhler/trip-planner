@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  createDate: 2016-05-03 22:45:50
+  modifiedDate: 2016-05-03 22:45:50
+  tripId: 1
+  userId: 1
+  capacity: 1
+  driverUserId: 1
+  title: MyString
+
+two:
+  createDate: 2016-05-03 22:45:50
+  modifiedDate: 2016-05-03 22:45:50
+  tripId: 1
+  userId: 1
+  capacity: 1
+  driverUserId: 1
+  title: MyString

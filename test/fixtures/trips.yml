@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  id: 1
+  createDate: 2016-05-03 21:39:41
+  modifiedDate: 2016-05-03 21:39:41
+  authorId: 1
+  capacity: 1
+  cost: 1.5
+  description: MyString
+  endDate: 2016-05-03 21:39:41
+  hostId: 1
+  image: MyString
+  location: MyString
+  public: false
+  startDate: 2016-05-03 21:39:41
+
+two:
+  title: MyString
+  id: 1
+  createDate: 2016-05-03 21:39:41
+  modifiedDate: 2016-05-03 21:39:41
+  authorId: 1
+  capacity: 1
+  cost: 1.5
+  description: MyString
+  endDate: 2016-05-03 21:39:41
+  hostId: 1
+  image: MyString
+  location: MyString
+  public: false
+  startDate: 2016-05-03 21:39:41

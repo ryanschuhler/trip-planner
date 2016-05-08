@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  createDate: 2016-05-03 22:43:44
+  modifiedDate: 2016-05-03 22:43:44
+  tripId: 1
+  userId: 1
+  cost: 1.5
+  payeeUserId: 1
+  title: MyString
+
+two:
+  createDate: 2016-05-03 22:43:44
+  modifiedDate: 2016-05-03 22:43:44
+  tripId: 1
+  userId: 1
+  cost: 1.5
+  payeeUserId: 1
+  title: MyString
