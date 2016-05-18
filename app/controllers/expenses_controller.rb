@@ -5,6 +5,13 @@ class ExpensesController < ApplicationController
 		redirect_to trip_path(@trip)
 	end
 
+	def destroy
+		trip = Trip.find(params[:trip_id])
+		@expense = trip.expenses.find(params[:id])
+		@expense.destroy
+		redirect_to trip_path(trip)
+	end
+
 	private
 		def expense_params
 			params.require(:expense).permit(:title, :cost)

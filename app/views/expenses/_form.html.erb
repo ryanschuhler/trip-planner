@@ -1,0 +1,13 @@
+<%= form_for([@trip, @trip.expenses.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,12 @@
+<% @trip.items.each do |item| %>
+  <p>
+    <strong>Title:</strong>
+    <%= item.title %>
+  </p>
+
+  <p>
+    <%= link_to 'Delete Item', [item.trip, item],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
