@@ -1,4 +1,6 @@
 class CarsController < ApplicationController
+	before_action :authenticate_user!
+
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@car = @trip.cars.create(car_params)

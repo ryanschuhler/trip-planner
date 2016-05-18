@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+	before_action :authenticate_user!
+
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@item = @trip.items.create(item_params)

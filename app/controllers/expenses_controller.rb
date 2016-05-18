@@ -1,4 +1,6 @@
 class ExpensesController < ApplicationController
+	before_action :authenticate_user!
+
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@expense = @trip.expenses.create(expense_params)

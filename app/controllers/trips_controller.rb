@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+	before_action :authenticate_user!
+
 	def create
 		@trip = Trip.new(trip_params)
 
