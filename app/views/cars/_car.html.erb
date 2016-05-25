@@ -1,17 +1,12 @@
 <% @trip.cars.each do |car| %>
-  <p>
-    <strong>Title:</strong>
-    <%= car.title %>
-  </p>
-
-  <p>
+  <span>
     <strong>Capacity:</strong>
     <%= car.capacity %>
-  </p>
+  </span>
 
-  <p>
+  <span>
     <%= link_to 'Delete Car', [car.trip, car],
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
-  </p>
+  </span>
 <% end %>

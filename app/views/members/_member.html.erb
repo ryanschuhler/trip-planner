@@ -1,0 +1,17 @@
+<% @trip.members.each do |member| %>
+  <span>
+    <strong>Email:</strong>
+    <%= member.email %>
+  </span>
+
+  <span>
+    <strong>Status:</strong>
+    <%= member.status %>
+  </span>
+
+  <span>
+    <%= link_to 'Delete Member', [member.trip, member],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </span>
+<% end %>

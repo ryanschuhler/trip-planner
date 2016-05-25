@@ -1,17 +1,17 @@
 <% @trip.expenses.each do |expense| %>
-  <p>
+  <span>
     <strong>Title:</strong>
     <%= expense.title %>
-  </p>
+  </span>
 
-  <p>
+  <span>
     <strong>Cost:</strong>
     <%= expense.cost %>
-  </p>
+  </span>
 
-  <p>
+  <span>
     <%= link_to 'Delete Expense', [expense.trip, expense],
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
-  </p>
+  </span>
 <% end %>

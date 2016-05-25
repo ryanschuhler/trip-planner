@@ -11,67 +11,84 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518045412) do
+ActiveRecord::Schema.define(version: 20160525030101) do
 
   create_table "cars", force: :cascade do |t|
-    t.datetime "createDate"
-    t.datetime "modifiedDate"
-    t.integer  "authorUserId"
-    t.integer  "capacity"
-    t.integer  "driverUserId"
-    t.string   "title"
     t.integer  "trip_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "author_id"
+    t.integer  "capacity"
+    t.integer  "driver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "cars", ["author_id"], name: "index_cars_on_author_id"
+  add_index "cars", ["driver_id"], name: "index_cars_on_driver_id"
   add_index "cars", ["trip_id"], name: "index_cars_on_trip_id"
 
   create_table "expenses", force: :cascade do |t|
-    t.datetime "createDate"
-    t.datetime "modifiedDate"
-    t.integer  "authorUserId"
-    t.float    "cost"
-    t.integer  "payeeUserId"
-    t.string   "title"
     t.integer  "trip_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "member_id"
+    t.integer  "author_id"
+    t.float    "cost"
+    t.string   "title"
+    t.integer  "payee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "expenses", ["author_id"], name: "index_expenses_on_author_id"
+  add_index "expenses", ["member_id"], name: "index_expenses_on_member_id"
+  add_index "expenses", ["payee_id"], name: "index_expenses_on_payee_id"
   add_index "expenses", ["trip_id"], name: "index_expenses_on_trip_id"
 
   create_table "items", force: :cascade do |t|
-    t.datetime "createDate"
-    t.datetime "modifiedDate"
-    t.integer  "authorUserId"
+    t.integer  "trip_id"
+    t.integer  "author_id"
     t.integer  "categoryId"
     t.boolean  "required"
     t.string   "title"
-    t.integer  "trip_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "items", ["author_id"], name: "index_items_on_author_id"
   add_index "items", ["trip_id"], name: "index_items_on_trip_id"
 
+  create_table "members", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.boolean  "admin"
+    t.string   "email"
+    t.integer  "status"
+    t.integer  "inviter_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "members", ["inviter_id"], name: "index_members_on_inviter_id"
+  add_index "members", ["trip_id"], name: "index_members_on_trip_id"
+  add_index "members", ["user_id"], name: "index_members_on_user_id"
+
   create_table "trips", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "createDate"
-    t.datetime "modifiedDate"
-    t.integer  "authorUserId"
+    t.integer  "author_id"
     t.integer  "capacity"
     t.float    "cost"
     t.string   "description"
+    t.string   "displayConfiguration"
     t.datetime "endDate"
-    t.integer  "hostUserId"
     t.string   "image"
     t.string   "location"
     t.boolean  "public"
     t.datetime "startDate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "title"
+    t.integer  "host_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
+
+  add_index "trips", ["author_id"], name: "index_trips_on_author_id"
+  add_index "trips", ["host_id"], name: "index_trips_on_host_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

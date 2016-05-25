@@ -1,9 +1,9 @@
 <%= form_for([@trip, @trip.items.build]) do |f| %>
-  <p>
+  <span>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </p>
-  <p>
+  </span>
+  <span>
     <%= f.submit %>
-  </p>
+  </span>
 <% end %>

@@ -8,6 +8,12 @@
 	<%= @trip.description %>
 </p>
 
+<h2>Members</h2>
+<%= render @trip.members %>
+
+<h2>Add a member:</h2>
+<%= render 'members/form' %>
+
 <h2>Expenses</h2>
 <%= render @trip.expenses %>
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'trips#index'
 
   resources :trips do
-    resources :cars, :expenses, :items
+    resources :cars, :expenses, :items, :members
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
