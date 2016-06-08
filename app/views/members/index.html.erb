@@ -1,0 +1,36 @@
+<%= render 'layouts/side_nav' %>
+
+<%= render 'layouts/banner' %>
+
+<div>
+  <h2>Going</h2>
+  <% if @members_yes != nil %>
+    <%= render @members_yes %>
+  <% end %>
+</div>
+
+<div>
+  <h2>Maybe</h2>
+  <% if @members_maybe != nil %>
+    <%= render @members_maybe %>
+  <% end %>
+</div>
+
+<div>
+  <h2>Not Going</h2>
+  <% if @members_no!= nil %>
+    <%= render @members_no %>
+  <% end %>
+</div>
+
+<div>
+  <h2>Awaiting Response</h2>
+  <% if @members_waiting != nil %>
+    <%= render @members_waiting %>
+  <% end %>
+</div>
+
+<h2>Add a member:</h2>
+<%= render 'members/form' %>
+
+<%= render 'layouts/footer' %>

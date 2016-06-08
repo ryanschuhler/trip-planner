@@ -1,0 +1,15 @@
+<%= render 'layouts/side_nav' %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+
+<%= render 'layouts/footer' %>

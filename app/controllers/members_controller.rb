@@ -4,40 +4,50 @@ class MembersController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @member = @trip.members.create(member_params)
-    redirect_to trip_path(@trip)
+    @member.inviter_id = current_user.id
+    @member.update(member_params)
+
+    redirect_to trip_members_path(@trip)
   end
 
   def destroy
-    trip = Trip.find(params[:trip_id])
-    @member = trip.members.find(params[:id])
-    @member.destroy
-    redirect_to trip_path(trip)
-  end
+    @trip = Trip.find(params[:trip_id])
+    @member = @trip.members.find(params[:id])
 
-  def edit
-    @member = Member.find(params[:id])
+    @member.destroy
+
+    redirect_to trip_members_path(@trip)
   end
 
   def index
-    @members = Member.all
+    @trip = Trip.find(params[:trip_id])
+
+    @members = @trip.members.all
+    @members_yes = @trip.members.where(status: 1)
+    @members_no = @trip.members.where(status: 2)
+    @members_maybe = @trip.members.where(status: 3)
+    @members_waiting = @trip.members.where(status: nil)
+
+    @user = current_user
   end
 
-  def new
-    @member = Member.new
-  end
-
-  def show
-    @member = Member.find(params[:id])
+  def respond
+    @trip = Trip.find(params[:trip_id])
+    @member = @trip.members.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @member = Member.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @member = @trip.members.find(params[:id])
+    @member.user_id = current_user.id
 
     if @member.update(member_params)
-      redirect_to @member
+      redirect_to trip_members_path(@trip)
     else
-      render 'edit'
+      render 'respond'
     end
+
   end
 
   private

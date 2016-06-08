@@ -1,0 +1,17 @@
+<%= render 'layouts/side_nav' %>
+
+<%= render 'layouts/banner' %>
+
+<div class="user-items">
+  <h2>User Items</h2>
+</div>
+
+<div class="items-list">
+  <h2>Items</h2>
+  <%= render @trip.items %>
+
+  <h2>Add an item:</h2>
+  <%= render 'items/form' %>
+</div>
+
+<%= render 'layouts/footer' %>

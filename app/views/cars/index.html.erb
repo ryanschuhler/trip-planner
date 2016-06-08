@@ -1,0 +1,12 @@
+<%= render 'layouts/side_nav' %>
+
+<%= render 'layouts/banner' %>
+
+<div class="cars-list">
+  <%= render @trip.cars %>
+
+  <h2>Add a car:</h2>
+  <%= render 'cars/form' %>
+</div>
+
+<%= render 'layouts/footer' %>

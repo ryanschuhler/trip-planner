@@ -9,9 +9,14 @@ Rails.application.routes.draw do
     resources :cars, :expenses, :items, :members
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get '/trips/:id/dashboard', to: 'trips#dashboard', as: 'trip_dashboard'
+  get '/users/:id/trips', to: 'users#trips', as: 'user_trips'
+  get '/trips/:trip_id/members/:id/respond', to: 'members#respond', as: 'member_respond'
+  # get '/profile' => 'users#show'
+  # get '/profile/settings' => 'users#edit'
 
-  get 'trips/index'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

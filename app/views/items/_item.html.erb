@@ -1,4 +1,4 @@
-<% @trip.items.each do |item| %>
+<div>
   <span>
     <strong>Title:</strong>
     <%= item.title %>
@@ -9,4 +9,4 @@
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
   </span>
-<% end %>
+</div>

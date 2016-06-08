@@ -1,13 +1,9 @@
 <%= form_for([@trip, @trip.members.build]) do |f| %>
-  <span>
+    <span>
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+      <%= f.text_field :email %>
   </span>
-  <span>
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </span>
-  <span>
+    <span>
     <%= f.submit %>
   </span>
 <% end %>

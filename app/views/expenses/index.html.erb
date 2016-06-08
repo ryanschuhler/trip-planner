@@ -1,0 +1,17 @@
+<%= render 'layouts/side_nav' %>
+
+<%= render 'layouts/banner' %>
+
+<div class="user-expenses">
+  <h2>User Expenses</h2>
+</div>
+
+<div class="expenses-list">
+  <h2>Items</h2>
+  <%= render @trip.expenses %>
+
+  <h2>Add an expense:</h2>
+  <%= render 'expenses/form' %>
+</div>
+
+<%= render 'layouts/footer' %>

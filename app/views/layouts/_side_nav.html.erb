@@ -1,0 +1,29 @@
+<div class="side-nav">
+  <ul class="user-navigation">
+    <li><%= link_to 'Find Trips', trips_path %></li>
+    <li><%= link_to 'Create Trip', new_trip_path %></li>
+
+    <% if defined?(current_user) %>
+      <li><%= link_to 'My Trips', user_trips_path(current_user) %></li>
+      <li><%= link_to 'Profile', user_path(current_user) %></li>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path)  %>
+    <% end %>
+  </ul>
+
+  <% if defined?(@trip) && (params.has_key?(:id) || params.has_key?(:trip_id)) %>
+    <ul class="site-navigation">
+      <li><%= link_to 'Home', trip_path(@trip) %></li>
+      <li><%= link_to 'Dashboard', trip_dashboard_path(@trip) %></li>
+      <li><%= link_to 'Members', trip_members_path(@trip) %></li>
+      <li><%= link_to 'Gear', trip_items_path(@trip) %></li>
+      <li><%= link_to 'Transportation', trip_cars_path(@trip) %></li>
+      <li><%= link_to 'Expenses', trip_expenses_path(@trip) %></li>
+      <li><%= link_to 'Settings', edit_trip_path(@trip) %></li>
+    </ul>
+  <% end %>
+</div>

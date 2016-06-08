@@ -1,0 +1,15 @@
+<%= render 'layouts/side_nav' %>
+
+<h2>Response</h2>
+
+<%= form_for @member, url: {action: "update"}, html: {method: "patch"} do |f| %>
+    <%= f.radio_button(:status, 1) %>
+    <%= f.label(:status_1, "Yes") %>
+    <%= f.radio_button(:status, 2) %>
+    <%= f.label(:status_2, "No") %>
+    <%= f.radio_button(:status, 3) %>
+    <%= f.label(:status_3, "Maybe") %>
+    <%= f.submit "Send" %>
+<% end %>
+
+<%= render 'layouts/footer' %>

@@ -78,5 +78,10 @@ class Intial < ActiveRecord::Migration
     end
 
     add_foreign_key :members, :members, column: :inviter_id
+
+    add_column :users, :bio, :string
+    add_column :users, :first_name, :string
+    add_column :users, :image, :string
+    add_column :users, :last_name, :string
   end
 end

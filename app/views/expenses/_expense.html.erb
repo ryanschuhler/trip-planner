@@ -1,4 +1,4 @@
-<% @trip.expenses.each do |expense| %>
+<div>
   <span>
     <strong>Title:</strong>
     <%= expense.title %>
@@ -14,4 +14,4 @@
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
   </span>
-<% end %>
+</div>

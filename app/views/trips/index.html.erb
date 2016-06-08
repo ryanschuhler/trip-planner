@@ -1,13 +1,11 @@
-<h1>Listing trips</h1>
+<%= render 'layouts/side_nav' %>
+
+<div class="banner">
+  <h1>Your next adventure awaits you</h1>
+  <%= button_to 'Create a trip', new_trip_path, :method => :get %>
+</div>
 
 <% if user_signed_in? %>
-    <%= current_user.email %>
-    <%= user_session %>
-
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-
-    <%= link_to 'Create a trip', new_trip_path %>
-
     <table>
       <tr>
         <th>Title</th>
@@ -28,3 +26,5 @@
 <% else %>
     <%= link_to('Login', new_user_session_path)  %>
 <% end %>
+
+<%= render 'layouts/footer' %>

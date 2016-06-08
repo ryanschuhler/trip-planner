@@ -1,4 +1,4 @@
-<% @trip.members.each do |member| %>
+<div>
   <span>
     <strong>Email:</strong>
     <%= member.email %>
@@ -10,8 +10,13 @@
   </span>
 
   <span>
-    <%= link_to 'Delete Member', [member.trip, member],
+    <% if member.user_id? %>
+      <%= link_to 'Profile', user_path(:id => member.user_id) %>
+    <% end %>
+
+    <%= link_to 'Respond', member_respond_path(member.trip, member) %>
+    <%= link_to 'Delete', [member.trip, member],
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
   </span>
-<% end %>
+</div>
